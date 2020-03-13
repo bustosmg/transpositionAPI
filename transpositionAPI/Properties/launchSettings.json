@@ -2,9 +2,13 @@
   "iisSettings": {
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
+    "iis": {
+      "applicationUrl": "http://localhost/transpositionAPI",
+      "sslPort": 0
+    },
     "iisExpress": {
-      "applicationUrl": "http://localhost:56426",
-      "sslPort": 44325
+      "applicationUrl": "https://localhost:44347/",
+      "sslPort": 44347
     }
   },
   "$schema": "http://json.schemastore.org/launchsettings.json",
@@ -15,7 +19,9 @@
       "launchUrl": "api/acordes",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
-      }
+      },
+      "sqlDebugging": false,
+      "ancmHostingModel": "InProcess"
     },
     "transpositionAPI": {
       "commandName": "Project",

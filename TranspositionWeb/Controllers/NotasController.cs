@@ -17,7 +17,7 @@ namespace TranspositionWeb.Controllers
         { 
             //bin\Release\netcoreapp3.1\publish\T1 
             var httpClient = new HttpClient();
-            var json = await httpClient.GetStringAsync("http://localhost:6030/api/notas");
+            var json = await httpClient.GetStringAsync("https://localhost:44347/api/notas");
             var notasJson = JsonConvert.DeserializeObject<List<TNotas>>(json);
 
             return View(notasJson);

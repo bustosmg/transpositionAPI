@@ -23,14 +23,14 @@ namespace transpositionAPI.Controllers.v1
 
         // GET: api/Acordes
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Acordes>>> Getacordes()
+        public async Task<ActionResult<IEnumerable<TAcordes>>> Getacordes()
         {
             return await _context.acordes.ToListAsync();
         }
 
         // GET: api/Acordes/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Acordes>> GetAcordes(int id)
+        public async Task<ActionResult<TAcordes>> GetAcordes(int id)
         {
             var acordes = await _context.acordes.FindAsync(id);
 
@@ -46,7 +46,7 @@ namespace transpositionAPI.Controllers.v1
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutAcordes(int id, Acordes acordes)
+        public async Task<IActionResult> PutAcordes(int id, TAcordes acordes)
         {
             if (id != acordes.Id)
             {
@@ -78,7 +78,7 @@ namespace transpositionAPI.Controllers.v1
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPost]
-        public async Task<ActionResult<Acordes>> PostAcordes(Acordes acordes)
+        public async Task<ActionResult<TAcordes>> PostAcordes(TAcordes acordes)
         {
             _context.acordes.Add(acordes);
             await _context.SaveChangesAsync();
@@ -88,7 +88,7 @@ namespace transpositionAPI.Controllers.v1
 
         // DELETE: api/Acordes/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Acordes>> DeleteAcordes(int id)
+        public async Task<ActionResult<TAcordes>> DeleteAcordes(int id)
         {
             var acordes = await _context.acordes.FindAsync(id);
             if (acordes == null)

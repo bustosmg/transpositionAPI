@@ -9,8 +9,8 @@ namespace transpositionAPI.Context
         {
         }
 
-        public DbSet<Notas> notas { set; get; }
-        public DbSet<Acordes> acordes { set; get; }
+        public DbSet<TNotas> notas { set; get; }
+        public DbSet<TAcordes> acordes { set; get; }
 
     }
 }

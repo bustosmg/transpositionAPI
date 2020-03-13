@@ -2,7 +2,7 @@
 
 namespace transpositionAPI.Models
 {
-    public class Acordes
+    public class TAcordes
     {
         [Required]
         public int Id { get; set; }

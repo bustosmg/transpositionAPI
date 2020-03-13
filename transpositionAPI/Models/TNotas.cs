@@ -2,7 +2,7 @@
 
 namespace transpositionAPI.Models
 {
-    public class Notas
+    public class TNotas
     {
         [Required]
         public int Id { get; set; }

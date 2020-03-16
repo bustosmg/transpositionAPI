@@ -8,12 +8,11 @@ namespace transpositionAPI.Models
         public int Id { get; set; }
 
         [Required(AllowEmptyStrings = false)]
-        public string acordesCromaticos { get; set; }
-
-        public string acordesCromaticosMayores { get; set; }
-        public string acordesCromaticosMenores { get; set; }
-        public string acordesSeptimaMayor { get; set; }
-        public string acordesSeptimaMenor { get; set; }
+        public string notasCromaticas { get; set; }
+        public string notasCromaticasMayores { get; set; }
+        public string notasCromaticasMenores { get; set; }
+        public string notasCromaticasSeptimaMayores { get; set; }
+        public string notasCromaticasSeptimaMenores { get; set; }
 
     }
 }

@@ -7,7 +7,7 @@
       "sslPort": 0
     },
     "iisExpress": {
-      "applicationUrl": "https://localhost:44347/",
+      "applicationUrl": "http://localhost:54120",
       "sslPort": 44347
     }
   },
@@ -16,12 +16,11 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "api/acordes",
+      "launchUrl": "api/notas",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
-      "sqlDebugging": false,
-      "ancmHostingModel": "InProcess"
+      "sqlDebugging": false
     },
     "transpositionAPI": {
       "commandName": "Project",

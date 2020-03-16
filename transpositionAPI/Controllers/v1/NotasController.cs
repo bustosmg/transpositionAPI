@@ -1,10 +1,10 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using transpositionAPI.Context;
 using transpositionAPI.Models;
 
@@ -15,16 +15,39 @@ namespace transpositionAPI.Controllers.v1
     public class NotasController : ControllerBase
     {
         private readonly DBContexto _context;
-
-        public NotasController(DBContexto context)
+        private readonly ILogger<NotasController> _logger;
+        public NotasController(DBContexto context, ILogger<NotasController> logger)
         {
             _context = context;
+            _logger = logger;
         }
 
+        [HttpGet("/GetTestLog")]
+        public  ActionResult GetTestLog()
+        {
+            int interacion = 3;
+            _logger.LogDebug($"Debug {interacion}");
+            _logger.LogInformation($"LogInformation {interacion}");
+            _logger.LogWarning($"LogWarning {interacion}");
+            _logger.LogError($"LogError {interacion}");
+            _logger.LogCritical($"LogCritical {interacion}");
+
+            try
+            {
+                throw new NotImplementedException();
+            }
+            catch (Exception ex)
+            {
+
+                _logger.LogError(ex, ex.Message);
+            }
+            return Ok("GetTestLog");
+        }
         // GET: api/Notas
         [HttpGet]
         public async Task<ActionResult<IEnumerable<TNotas>>> Getnotas()
         {
+
             return await _context.notas.ToListAsync();
         }
 

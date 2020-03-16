@@ -47,8 +47,16 @@ namespace transpositionAPI.Controllers.v1
         [HttpGet]
         public async Task<ActionResult<IEnumerable<TNotas>>> Getnotas()
         {
+            try
+            {
+                return await _context.notas.ToListAsync();
+            }
+            catch (Exception ex)
+            {
 
-            return await _context.notas.ToListAsync();
+                _logger.LogError(ex, ex.Message);
+            }
+            return Ok("Getnotas");
         }
 
         // GET: api/Notas/5

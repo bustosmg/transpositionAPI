@@ -56,7 +56,7 @@ namespace transpositionAPI.Controllers.v1
 
                 _logger.LogError(ex, ex.Message);
             }
-            return Ok("Getnotas");
+            return BadRequest();
         }
 
         // GET: api/Notas/5

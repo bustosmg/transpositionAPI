@@ -14,15 +14,12 @@ namespace TranspositionWeb.Controllers
     {
         // GET: Notas
         public async Task<ActionResult> Index()
-        { 
+        {
             //bin\Release\netcoreapp3.1\publish\T1 
             var httpClient = new HttpClient();
             var json = await httpClient.GetStringAsync("https://transpositionapi.azurewebsites.net/api/notas");
-            
-            var oAPItrans = new NotasController();
-            var jsonAPInotas = oAPItrans.Getnotas();
 
-
+            //var oAPItrans = new NotasController();        
             var notasJson = JsonConvert.DeserializeObject<List<TNotas>>(json);
 
             return View(notasJson);

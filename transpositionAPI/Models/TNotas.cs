@@ -9,10 +9,6 @@ namespace transpositionAPI.Models
 
         [Required(AllowEmptyStrings = false)]
         public string notasCromaticas { get; set; }
-        public string notasCromaticasMayores { get; set; }
-        public string notasCromaticasMenores { get; set; }
-        public string notasCromaticasSeptimaMayores { get; set; }
-        public string notasCromaticasSeptimaMenores { get; set; }
 
     }
 }

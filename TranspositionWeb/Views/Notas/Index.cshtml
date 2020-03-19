@@ -1,15 +1,54 @@
-﻿  
+﻿
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Notas Index</h1>
+<h1>Transposición de Notas</h1>
+<h3>DE: </h3>
 
-<div>
-    <ul>
+<table class="table table-bordered">
+    <thead class="table-info">
+        <tr>
+            <th>C</th>
+            <th>Eb</th>
+            <th>Bb</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                @Html.CheckBox("de", true)
+            </td>
+            <td>
+                @Html.CheckBox("de", false)
+            </td>
+            <td>
+                @Html.CheckBox("de", false)
+            </td>
+        </tr>
+    </tbody>
+
+</table>
+
+<h3>Selecciones los acordes a transponer: </h3>
+
+<table class="table table-bordered">
+    @foreach (var item in Model)
+    {
+        <td>
+            @item.notasCromaticas  &nbsp;  @Html.CheckBox("escala_de", false)
+        </td>
+    }
+</table>
+
+<h3>A: </h3>
+<div class="table-responsive-md">
+    <table class="table table-bordered">
         @foreach (var item in Model)
         {
-            <li> @item.notasCromaticas </li>
+            <td>
+                @item.notasCromaticas " >" @item.notasCromaticas
+            </td>
         }
-    </ul>
+    </table>
 </div>

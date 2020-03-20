@@ -1,13 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿ using System.ComponentModel.DataAnnotations;
 
-namespace transpositionAPI.Models
+namespace transpositionWeb.ModelView
 {
-    public class TNotas
+    public class TNotasView
     {
         [Required]
         public int Id { get; set; }
-
-        [Required(AllowEmptyStrings = false)]
 
         public string notasCromaticas { get; set; }
 

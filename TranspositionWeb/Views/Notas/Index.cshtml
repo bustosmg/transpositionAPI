@@ -1,4 +1,5 @@
-﻿
+﻿@model transpositionWeb.ModelView.TNotasView
+
 @{
     ViewData["Title"] = "Index";
 }
@@ -32,23 +33,34 @@
 
 <h3>Selecciones los acordes a transponer: </h3>
 
+
+@using (Html.BeginForm("Index", "Notas", FormMethod.Post))
+{
+    <table class="table table-bordered">
+        @foreach (var item in ViewBag.Notas)
+        {
+            <td>
+                @*@Html.LabelFor(item => item.notasCromaticas, new { style="color:red" })  &nbsp; @Html.CheckBoxFor(item => item.IsChecked, false)*@
+                @Html.Raw(item.notasCromaticas)  &nbsp; @Html.CheckBoxFor(item => item.IsChecked, false)
+            </td>
+        }
+        <tr>
+            <td>
+                <div>
+                    <input type="submit" value="Enviar" />
+                </div>
+            </td>
+        </tr>
+    </table>
+}
+
+<h3>A: </h3>
+
 <table class="table table-bordered">
-    @foreach (var item in Model)
+    @foreach (var item in ViewBag.Notas)
     {
         <td>
-            @item.notasCromaticas  &nbsp;  @Html.CheckBox("escala_de", false)
+            @Html.Raw(item.notasCromaticas)
         </td>
     }
 </table>
-
-<h3>A: </h3>
-<div class="table-responsive-md">
-    <table class="table table-bordered">
-        @foreach (var item in Model)
-        {
-            <td>
-                @item.notasCromaticas " >" @item.notasCromaticas
-            </td>
-        }
-    </table>
-</div>

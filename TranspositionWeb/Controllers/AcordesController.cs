@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
-using transpositionAPI.Models;
+using System.Threading.Tasks;
 
 namespace TranspositionWeb.Controllers
 {
@@ -15,11 +9,6 @@ namespace TranspositionWeb.Controllers
         // GET: Acordes
         public async Task<ActionResult> Index()
         {
-
-
-            var httpClient = new HttpClient();
-            var json = await httpClient.GetStringAsync("https://localhost:44347/api/acordes");
-            var notasJson = JsonConvert.DeserializeObject<List<TNotas>>(json);
 
             return View();
         }

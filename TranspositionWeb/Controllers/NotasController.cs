@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using transpositionAPI.Models;
+using transpositionWeb.ModelView;
 
 namespace TranspositionWeb.Controllers
 {
@@ -20,9 +21,19 @@ namespace TranspositionWeb.Controllers
             var json = await httpClient.GetStringAsync("https://transpositionapi.azurewebsites.net/api/notas");
 
             //var oAPItrans = new NotasController();        
-            var notasJson = JsonConvert.DeserializeObject<List<TNotas>>(json);
+            var notasJson = JsonConvert.DeserializeObject<List<TNotasView>>(json);
+            ViewBag.Notas = notasJson;
 
-            return View(notasJson);
+            //return View(notasJson);
+            return View();
+        }
+
+
+        [HttpPost]
+        public ActionResult Index(TNotasView notasView)
+        {
+            ViewBag.Mensaje = "Exitoso";
+            return View(notasView);
         }
 
         // GET: Notas/Details/5
